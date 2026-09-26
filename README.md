@@ -32,3 +32,22 @@ make test
 ```
 
 Tune `TITLE_PATTERN` in `.env` or pass `PATTERN=...` to change what counts as a class recording.
+
+## Docker (Windows, macOS, anything without uv)
+
+Needs only [Docker Desktop](https://www.docker.com/products/docker-desktop/). Create `.env` from
+`.env.example` first; recordings land in `./data/recordings` on your machine.
+
+```sh
+docker compose build
+docker compose run --rm zoho list -a                 # all recordings
+docker compose run --rm zoho list -p pandas          # search by title
+docker compose run --rm zoho download -n             # dry run
+docker compose run --rm zoho download
+
+# one-time token setup
+docker compose run --rm --entrypoint python zoho scripts/get_refresh_token.py          # prints scopes
+docker compose run --rm --entrypoint python zoho scripts/get_refresh_token.py <code>
+```
+
+Rebuild (`docker compose build`) after pulling code changes.
