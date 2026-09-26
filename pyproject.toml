@@ -1,0 +1,20 @@
+[project]
+name = "zoho-downloader"
+version = "0.1.0"
+description = "Download Zindua class recordings from Zoho Meeting"
+readme = "README.md"
+authors = [
+    { name = "Rohianon", email = "rohi@mophones.co" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.13.5",
+    "pydantic-settings>=2.15.0",
+    "requests>=2.34.2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "responses>=0.26.3",
+]
